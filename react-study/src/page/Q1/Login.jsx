@@ -7,6 +7,8 @@ import { LoginBtn } from "../../components/Login/LoginBtn";
 import { LoginModal } from "../../components/Login/LoginModal";
 
 const Login = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [autoLogin, setAutoLogin] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -14,11 +16,11 @@ const Login = () => {
         <Wrapper>
             <Container>
                 <Title>로그인</Title>
-                <LoginInput />
+                <LoginInput email={email} setEmail={setEmail} password={password} setPassword={setPassword} />
                 <AutoLogin autoLogin={autoLogin} setAutoLogin={setAutoLogin} />
                 <LoginBtn setIsModalOpen={setIsModalOpen} />
             </Container>
-            {isModalOpen && <LoginModal autoLogin={autoLogin} setIsModalOpen={setIsModalOpen} />}
+            {isModalOpen && <LoginModal email={email} password={password} autoLogin={autoLogin} setIsModalOpen={setIsModalOpen} />}
         </Wrapper>
     );
 }

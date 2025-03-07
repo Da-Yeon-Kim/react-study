@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const LoginInput = () => {
+export const LoginInput = ({ email, setEmail, password, setPassword }) => {
     return (
         <>
-            <CustomInput placeholder="이메일"></CustomInput>
-            <CustomInput placeholder="비밀번호"></CustomInput>
+            <CustomInput type="email" placeholder="이메일" onChange={(e) => setEmail(e.target.value)}></CustomInput>
+            <CustomInput type="password" placeholder="비밀번호" onChange={(e) => setPassword(e.target.value)}></CustomInput>
         </>
     );
 }

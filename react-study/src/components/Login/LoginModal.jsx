@@ -1,12 +1,14 @@
 import { styled } from 'styled-components';
 
-export const LoginModal = ({ autoLogin, setIsModalOpen }) => {
+export const LoginModal = ({ email, password, autoLogin, setIsModalOpen }) => {
     const closeModal = () => setIsModalOpen(false);
 
     return (
         <Wrapper>
             <Modal>
                 <Title>로그인 정보</Title>
+                <Text>아이디 : {email} </Text>
+                <Text>비밀번호 : {password}</Text>
                 <Text>자동 로그인 : {autoLogin ? "y" : "n"}</Text>
                 <CloseWrapper>
                     <CloseBtn onClick={closeModal}>닫기</CloseBtn>
