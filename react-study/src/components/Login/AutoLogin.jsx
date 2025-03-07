@@ -1,10 +1,15 @@
 import styled from "styled-components";
+import { useLogin } from "../../hooks/LoginContext";
 
-export const AutoLogin = ({ autoLogin, setAutoLogin }) => {
+import IconCheck from "../../img/icon_check.png";
+import IconCheckNot from "../../img/icon_check_not.png"
+
+export const AutoLogin = () => {
+    const { autoLogin, setAutoLogin } = useLogin();
 
     return (
         <Wrapper onClick={() => setAutoLogin(!autoLogin)}>
-            <CheckIcon src={autoLogin ? require("../../img/icon_check.png") : require("../../img/icon_check_not.png")}></CheckIcon>
+            <CheckIcon src={autoLogin ? IconCheck : IconCheckNot}></CheckIcon>
             <CheckTitle autoLogin={autoLogin}>자동로그인</CheckTitle>
         </Wrapper>
     );
@@ -27,5 +32,5 @@ const CheckIcon = styled.img`
 const CheckTitle = styled.p`
     margin: 0;
     font-size: 14px;
-    color: ${(props) => (props.autoLogin ? "white" : "#656565")}; 
+    color: ${({ autoLogin }) => (autoLogin ? "white" : "gray")};
 `

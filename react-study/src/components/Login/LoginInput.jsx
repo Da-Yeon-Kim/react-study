@@ -1,6 +1,9 @@
 import styled from "styled-components";
+import { useLogin } from "../../hooks/LoginContext";
 
-export const LoginInput = ({ email, setEmail, password, setPassword }) => {
+export const LoginInput = () => {
+    const { setEmail, setPassword } = useLogin();
+
     return (
         <>
             <CustomInput type="email" placeholder="이메일" onChange={(e) => setEmail(e.target.value)}></CustomInput>

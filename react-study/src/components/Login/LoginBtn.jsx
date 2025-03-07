@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import { useLogin } from "../../hooks/LoginContext";
 
-export const LoginBtn = ({ email, password, setIsModalOpen }) => {
+export const LoginBtn = () => {
+    const { email, password, setIsModalOpen } = useLogin();
 
     const handleClick = () => {
         if (!email || !password) {

@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { useState } from "react";
+
+import { LoginProvider, useLogin } from "../../hooks/LoginContext";
 
 import { LoginInput } from "../../components/Login/LoginInput";
 import { AutoLogin } from "../../components/Login/AutoLogin";
@@ -7,21 +8,19 @@ import { LoginBtn } from "../../components/Login/LoginBtn";
 import { LoginModal } from "../../components/Login/LoginModal";
 
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [autoLogin, setAutoLogin] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <Wrapper>
-            <Container>
-                <Title>로그인</Title>
-                <LoginInput email={email} setEmail={setEmail} password={password} setPassword={setPassword} />
-                <AutoLogin autoLogin={autoLogin} setAutoLogin={setAutoLogin} />
-                <LoginBtn email={email} password={password} setIsModalOpen={setIsModalOpen} />
-            </Container>
-            {isModalOpen && <LoginModal email={email} password={password} autoLogin={autoLogin} setIsModalOpen={setIsModalOpen} />}
-        </Wrapper>
+        <LoginProvider>
+            <Wrapper>
+                <Container>
+                    <Title>로그인</Title>
+                    <LoginInput />
+                    <AutoLogin />
+                    <LoginBtn />
+                </Container>
+                <ModalWrapper />
+            </Wrapper>
+        </LoginProvider>
     );
 }
 
@@ -44,5 +43,10 @@ const Container = styled.div`
 
 const Title = styled.h2`
 `
+
+const ModalWrapper = () => {
+    const { isModalOpen } = useLogin();
+    return isModalOpen ? <LoginModal /> : null;
+};
 
 export default Login;

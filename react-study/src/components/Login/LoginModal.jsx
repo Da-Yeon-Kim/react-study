@@ -1,6 +1,8 @@
 import { styled } from 'styled-components';
+import { useLogin } from '../../hooks/LoginContext';
 
-export const LoginModal = ({ email, password, autoLogin, setIsModalOpen }) => {
+export const LoginModal = () => {
+    const { email, password, autoLogin, setIsModalOpen } = useLogin();
     const closeModal = () => setIsModalOpen(false);
 
     return (
