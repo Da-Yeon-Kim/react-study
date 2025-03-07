@@ -18,7 +18,7 @@ const Login = () => {
                 <Title>로그인</Title>
                 <LoginInput email={email} setEmail={setEmail} password={password} setPassword={setPassword} />
                 <AutoLogin autoLogin={autoLogin} setAutoLogin={setAutoLogin} />
-                <LoginBtn setIsModalOpen={setIsModalOpen} />
+                <LoginBtn email={email} password={password} setIsModalOpen={setIsModalOpen} />
             </Container>
             {isModalOpen && <LoginModal email={email} password={password} autoLogin={autoLogin} setIsModalOpen={setIsModalOpen} />}
         </Wrapper>

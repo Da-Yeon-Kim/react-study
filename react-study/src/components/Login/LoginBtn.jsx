@@ -1,9 +1,17 @@
 import styled from "styled-components";
 
-export const LoginBtn = ({ setIsModalOpen }) => {
+export const LoginBtn = ({ email, password, setIsModalOpen }) => {
+
+    const handleClick = () => {
+        if (!email || !password) {
+            return alert("이메일/비밀번호를 정확히 입력해주세요.");
+        }
+        setIsModalOpen(true);
+    };
+
     return (
         <Wrapper>
-            <LoginButton onClick={() => setIsModalOpen(true)}>로그인하기</LoginButton>
+            <LoginButton onClick={handleClick}>로그인하기</LoginButton>
         </Wrapper>
     );
 };
@@ -32,4 +40,3 @@ const LoginButton = styled.button`
         border: 2px solid #cd3155;
     }
 `
-
