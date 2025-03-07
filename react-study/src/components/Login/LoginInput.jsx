@@ -19,4 +19,9 @@ const CustomInput = styled.input`
     color: white;
     border: 1px solid #333333;
     border-radius: 5px;
+    &:hover,
+    &:focus {
+        outline: none;
+        border: 1px solid #646464;
+    }
 `
