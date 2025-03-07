@@ -1,18 +1,24 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 import { LoginInput } from "../../components/Login/LoginInput";
 import { AutoLogin } from "../../components/Login/AutoLogin";
 import { LoginBtn } from "../../components/Login/LoginBtn";
+import { LoginModal } from "../../components/Login/LoginModal";
 
 const Login = () => {
+    const [autoLogin, setAutoLogin] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <Wrapper>
             <Container>
                 <Title>로그인</Title>
                 <LoginInput />
-                <AutoLogin />
-                <LoginBtn />
+                <AutoLogin autoLogin={autoLogin} setAutoLogin={setAutoLogin} />
+                <LoginBtn setIsModalOpen={setIsModalOpen} />
             </Container>
+            {isModalOpen && <LoginModal autoLogin={autoLogin} setIsModalOpen={setIsModalOpen} />}
         </Wrapper>
     );
 }

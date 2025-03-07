@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const LoginBtn = () => {
+export const LoginBtn = ({ setIsModalOpen }) => {
     return (
         <Wrapper>
-            <LoginButton>로그인하기</LoginButton>
+            <LoginButton onClick={() => setIsModalOpen(true)}>로그인하기</LoginButton>
         </Wrapper>
     );
-}
+};
 
 const Wrapper = styled.div`
     display: flex;
