@@ -6,8 +6,8 @@ export const LoginInput = () => {
 
     return (
         <>
-            <CustomInput type="email" placeholder="이메일" onChange={(e) => setEmail(e.target.value)}></CustomInput>
-            <CustomInput type="password" placeholder="비밀번호" onChange={(e) => setPassword(e.target.value)}></CustomInput>
+            <CustomInput type="email" placeholder="이메일" onChange={(e) => setEmail(e.target.value)} />
+            <CustomInput type="password" placeholder="비밀번호" onChange={(e) => setPassword(e.target.value)} />
         </>
     );
 }

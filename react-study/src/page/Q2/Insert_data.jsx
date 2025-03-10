@@ -1,9 +1,11 @@
 import styled from "styled-components";
+import { DataInput } from "../../components/InsertData/DataInput";
 
 const Insert_data = () => {
     return (
         <Container>
             <Title>데이터 입력</Title>
+            <DataInput />
         </Container>
     );
 }
